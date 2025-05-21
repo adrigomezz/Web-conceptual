@@ -1,23 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARGO Studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&family=Lora:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosotros – ARGO Studio</title>
+  <link rel="stylesheet" href="assets/css/nosotros.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
 
-<header><h1><img src="assets/images/argo-logo.png" class="logo-img"/> ARGO</h1></header>
-<nav><ul><li><a href="index.html">Inicio</a></li><li><a href="servicios.html">Servicios</a></li><li><a href="nosotros.html">Nosotros</a></li><li><a href="formulario.html">Contacto</a></li></ul></nav>
-<main>
-  <section class="section">
-    <h2>¿Quiénes somos?</h2>
-    <p>ARGO Studio es liderado por un joven profesional inmerso en el ámbito político y empresarial, que une tecnología con visión estratégica. No somos una agencia común: somos tu aliado digital exclusivo.</p>
-  </section>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="navbar-left">
+    <span class="studio-name">ARGO</span>
+    <img src="assets/images/argo-logo.png" alt="Logo ARGO Studio" class="logo-img" style="width: 60px; height: auto;">
+  </div>
+  <button class="hamburger" id="hamburgerBtn">
+    <i class="fas fa-bars"></i>
+  </button>
+  <ul class="navbar-right">
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="#">Servicios</a></li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- MENÚ MÓVIL -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="nosotros.html">Nosotros</a></li>
+    <li><a href="#">Servicios</a></li>
+    <li><a href="#">Contacto</a></li>
+  </ul>
+</div>
+
+<!-- CONTENIDO NOSOTROS CON RUTA DE IMAGEN AQUÍ -->
+<main class="nosotros-fondo" style="background-image: url('assets/images/Estudio.png');">
+  <div class="nosotros-overlay">
+    <section class="nosotros-contenido scroll-animate fade-up">
+      <h1>NOSOTROS</h1>
+      <p>En un mundo dominado por gigantes, a veces es la juventud la que se atreve a ver distinto. ARGO Studio nace del ímpetu de una generación que entiende que el valor no está en el volumen, sino en la visión. No venimos a ocupar espacio, venimos a aportar significado.</p>
+      <p>Surgido de raíces familiares y haciendo honor a los argonautas, aquellos aventureros de la mitología que no temían cruzar lo desconocido por un propósito mayor, la idea tomó forma por primera vez el 21 de febrero de 2022. Pero no fue hasta el 16 de mayo de 2025 cuando se convirtió en un estudio formal. Entre una fecha y otra, lo que hubo fue determinación, aprendizaje y una apuesta clara: crear soluciones tecnológicas que respeten el tiempo, la privacidad y el estilo de quienes deciden.</p>
+      <p>Hoy, en ARGO diseñamos plataformas digitales de alto nivel con un enfoque estratégico y personalizado. Nos dirigimos a quienes entienden que la tecnología no solo debe funcionar, también debe representar. Porque la verdadera innovación no grita: se intuye.</p>
+      <div class="nosotros-cita">
+        <blockquote>“La mejor manera de predecir el futuro es crearlo”</blockquote>
+        <span>— Peter Drucker</span>
+      </div>
+    </section>
+  </div>
 </main>
-<footer><p>&copy; 2025 ARGO Studio</p></footer>
+
+<!-- FOOTER -->
+<footer class="argo-footer">
+  <div class="footer-contenido">
+    <p class="footer-slogan">Una tecnología que no se nota, pero se siente</p>
+    <p class="footer-copy">© 2025 Todos los derechos reservados. Diseñado por ARGO Studio</p>
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script>
+  const hamburgerBtn = document.getElementById('hamburgerBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+
+  const scrollElements = document.querySelectorAll('.scroll-animate');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  });
+  scrollElements.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
