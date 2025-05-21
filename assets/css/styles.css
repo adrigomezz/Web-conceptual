@@ -1,4 +1,7 @@
 /* BASE */
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: 'Raleway', sans-serif;
@@ -286,14 +289,13 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: transparent; /* <--- Se eliminó el gris translúcido */
   color: #fff;
   font-size: 2em;
   padding: 0.5em 0.8em;
   cursor: pointer;
   border: none;
   z-index: 10;
-  transition: background-color 0.3s;
+  background: none;
 }
 .contenido-prev:hover,
 .contenido-next:hover {
@@ -342,55 +344,71 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-  .studio-name {
-    font-size: 1.2em;
-  }
-
-  .navbar-right li a {
-    font-size: 0.85em;
-  }
-
-  .caption h1 {
-    font-size: 1.4em;
-  }
-
-  .caption p {
-    font-size: 0.9em;
-  }
-
-  .overlay button {
-    font-size: 0.9em;
-    padding: 0.6em 1.2em;
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
   }
 
   .contenido-slide {
     flex-direction: column;
     text-align: center;
     gap: 2em;
+    padding: 2em 1em;
   }
 
-  .contenido-texto h3 {
-    font-size: 1.2em;
+  .contenido-texto {
+    text-align: justify;
   }
 
+  .contenido-texto h3 { font-size: 1.2em; }
   .contenido-texto p,
   .contenido-texto .extra {
     font-size: 0.9em;
   }
 
-  .contenido-boton {
-    font-size: 0.9em;
-    padding: 0.6em 1.2em;
+  .contenido-imagen img {
+    width: 100%;
+    max-width: 100%;
   }
 
-  .contenido-prev { left: 0.3em; }
-  .contenido-next { right: 0.3em; }
-
-  .footer-slogan {
-    font-size: 1em;
+  .contenido-prev,
+  .contenido-next {
+    top: 50%;
+    transform: translateY(-50%);
+    left: auto;
+    right: auto;
   }
 
-  .footer-copy {
+  .contenido-prev {
+    left: 0.5em !important;
+  }
+
+  .contenido-next {
+    right: 0.5em !important;
+  }
+
+  .navbar-right {
+    gap: 1em;
     font-size: 0.85em;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .caption h1 {
+    font-size: 1.6em;
+  }
+
+  .caption p {
+    font-size: 0.9em;
+  }
+
+  .overlay {
+    top: 65%;
+  }
+
+  .slide,
+  .carousel,
+  .hero {
+    width: 100vw !important;
   }
 }
