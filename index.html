@@ -16,12 +16,28 @@
       <span class="studio-name">ARGO</span>
       <img src="assets/images/argo-logo.png" alt="Logo ARGO Studio" class="logo-img" style="width: 60px; height: auto;">
     </div>
+
+    <!-- Botón hamburguesa para móvil -->
+    <button class="hamburger" id="hamburgerBtn">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Menú principal (escritorio) -->
     <ul class="navbar-right">
       <li><a href="#">Nosotros</a></li>
       <li><a href="#">Servicios</a></li>
       <li><a href="#">Contacto</a></li>
     </ul>
   </nav>
+
+  <!-- Menú desplegable móvil -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul>
+      <li><a href="#">Nosotros</a></li>
+      <li><a href="#">Servicios</a></li>
+      <li><a href="#">Contacto</a></li>
+    </ul>
+  </div>
 
   <!-- HERO / CARRUSEL -->
   <header class="hero">
@@ -54,8 +70,6 @@
   <main id="contenido" class="contenido-slider">
     <div class="contenido-decoracion superior"></div>
     <div class="contenido-container">
-
-      <!-- Slide 1 -->
       <div class="contenido-slide active">
         <div class="contenido-texto">
           <h3>TRATAMIENTO ESPECIAL</h3>
@@ -68,7 +82,6 @@
         </div>
       </div>
 
-      <!-- Slide 2 -->
       <div class="contenido-slide">
         <div class="contenido-texto">
           <h3>DISEÑO WEB DEDICADO</h3>
@@ -81,7 +94,6 @@
         </div>
       </div>
 
-      <!-- Slide 3 -->
       <div class="contenido-slide">
         <div class="contenido-texto">
           <h3>NOSOTROS TE ASESORAMOS</h3>
@@ -94,14 +106,21 @@
         </div>
       </div>
 
-      <!-- Flechas de navegación -->
       <button class="contenido-prev">&#10094;</button>
       <button class="contenido-next">&#10095;</button>
     </div>
     <div class="contenido-decoracion inferior"></div>
   </main>
 
-  <!-- SCRIPT CARRUSEL HERO -->
+  <!-- FOOTER -->
+  <footer class="argo-footer">
+    <div class="footer-contenido">
+      <p class="footer-slogan">Una tecnología que no se nota, pero se siente</p>
+      <p class="footer-copy">© 2025 Todos los derechos reservados. Diseñado por ARGO Studio</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
   <script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('.slide');
@@ -110,19 +129,7 @@
       currentSlide = (currentSlide + 1) % slides.length;
       slides[currentSlide].classList.add('active');
     }, 5000);
-  </script>
 
-  <!-- FOOTER -->
-<footer class="argo-footer">
-  <div class="footer-contenido">
-    <p class="footer-slogan">Una tecnología que no se nota, pero se siente</p>
-    <p class="footer-copy">© 2025 Todos los derechos reservados. Diseñado por ARGO Studio</p>
-  </div>
-</footer>
-
-
-  <!-- SCRIPT CARRUSEL CONTENIDO -->
-  <script>
     document.addEventListener("DOMContentLoaded", function () {
       const contenidoSlides = document.querySelectorAll('.contenido-slide');
       const prevBtn = document.querySelector('.contenido-prev');
@@ -152,19 +159,23 @@
       showContenido(currentContenido);
       setInterval(nextContenido, 10000);
     });
+
+    const scrollElements = document.querySelectorAll('.scroll-animate');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    });
+    scrollElements.forEach(el => observer.observe(el));
+
+    const hamburgerBtn = document.getElementById('hamburgerBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburgerBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
   </script>
 
-  <script>
-  const scrollElements = document.querySelectorAll('.scroll-animate');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  });
-
-  scrollElements.forEach(el => observer.observe(el));
-</script>
 </body>
 </html>
