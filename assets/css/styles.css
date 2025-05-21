@@ -96,12 +96,15 @@ body {
   color: #d4af37;
 }
 
-/* CARRUSEL */
+/* CARRUSEL HERO */
 .hero {
   position: relative;
   height: 100vh;
   overflow: hidden;
   animation: zoomIn 1.5s ease-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .carousel {
@@ -145,11 +148,12 @@ body {
 .caption {
   position: relative;
   z-index: 2;
+  padding: 0 1em;
 }
 .caption h1 {
   font-family: 'Playfair Display', serif;
   color: #d4af37;
-  font-size: 2.8em;
+  font-size: 2.5em;
   margin: 0;
   text-transform: uppercase;
 }
@@ -159,19 +163,20 @@ body {
   color: #fff;
   margin-top: 0.6em;
   max-width: 700px;
+  margin-inline: auto;
 }
 
 /* BOTÓN DESCUBRIR */
 .overlay {
   position: absolute;
-  top: 65%;
+  bottom: 5%;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
   z-index: 5;
 }
 .overlay button {
-  margin-top: 1.2em;
+  margin-top: 1em;
   padding: 0.8em 1.6em;
   font-size: 1em;
   background-color: #d4af37;
@@ -188,7 +193,7 @@ body {
 /* ÁREA DE CONTENIDO */
 .contenido-slider {
   position: relative;
-  height: 100vh;
+  min-height: 100vh;
   background-color: #000;
   display: flex;
   align-items: center;
@@ -227,10 +232,11 @@ body {
   animation: fadeInLeft 1s ease forwards;
 }
 .contenido-texto h3 {
-  font-family: 'Playfair Display', sans-serif;
+  font-family: 'Playfair Display', serif;
   color: #d4af37;
   font-size: 1.6em;
   margin-bottom: 0.4em;
+  word-break: break-word;
 }
 .contenido-texto p {
   font-size: 1em;
@@ -286,21 +292,21 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: transparent;
   color: #fff;
   font-size: 2em;
-  padding: 0.5em 0.8em;
+  padding: 0.3em 0.5em;
   cursor: pointer;
   border: none;
   z-index: 10;
-  transition: background-color 0.3s;
+  transition: color 0.3s ease;
 }
 .contenido-prev:hover,
 .contenido-next:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+  color: #d4af37;
 }
-.contenido-prev { left: -3em; }
-.contenido-next { right: -3em; }
+.contenido-prev { left: 1em; }
+.contenido-next { right: 1em; }
 
 /* FOOTER */
 .argo-footer {
@@ -342,20 +348,53 @@ body {
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 1em;
+    width: 100%;
+  }
+
+  .caption h1 {
+    font-size: 1.6em;
+  }
+
+  .caption p {
+    font-size: 1em;
+    padding: 0 1em;
+  }
+
+  .overlay button {
+    font-size: 0.95em;
+    padding: 0.7em 1.4em;
+  }
+
   .contenido-slide {
     flex-direction: column;
     text-align: center;
     gap: 2em;
+    padding: 2em 1.5em;
   }
+
+  .contenido-texto h3 {
+    font-size: 1.4em;
+    text-align: center;
+  }
+
+  .contenido-texto p,
+  .contenido-texto .extra {
+    font-size: 0.95em;
+    text-align: center;
+  }
+
   .contenido-imagen img {
     width: 100%;
     max-width: 100%;
   }
-  .contenido-prev { left: 0.3em; }
-  .contenido-next { right: 0.3em; }
-  .contenido-texto h3 { font-size: 1.3em; }
-  .contenido-texto p,
-  .contenido-texto .extra {
-    font-size: 0.95em;
+
+  .contenido-prev {
+    left: 0.3em;
+  }
+  .contenido-next {
+    right: 0.3em;
   }
 }
